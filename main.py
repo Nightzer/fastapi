@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from route import app as route_app
+from route.book import app as book_route
 
 app = FastAPI()
 
@@ -9,4 +9,4 @@ def root():
     return {'message': 'Hello World'}
 
 
-app.mount('/api', route_app)
+app.mount('/api', book_route)
