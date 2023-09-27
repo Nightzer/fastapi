@@ -13,10 +13,12 @@ class BookController:
             return books
         return DB
 
+
     def find(self, id_book: int):
         for book in DB:
             if book.get('id') == id_book:
                 return book
+
 
     def create(self, book: BookCreateRequest):
         model = Book(**book.model_dump())
@@ -29,6 +31,7 @@ class BookController:
             if DB[i].get('id') == id_book:
                 DB[i] = book
         return DB
+
 
     def delete(self, id_book: int):
         for i in range(len(DB)):
