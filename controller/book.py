@@ -8,15 +8,15 @@ class BookController:
         if category:
             books = []
             for book in DB:
-                if book.get('category').casefold() == category.casefold():
+                if book.category.casefold() == category.casefold():
                     books.append(book)
             return books
         return DB
 
 
-    def find(self, id_book: int):
+    def find(self, id_book: int) -> Book:
         for book in DB:
-            if book.get('id') == id_book:
+            if book.id == id_book:
                 return book
 
 
@@ -28,7 +28,7 @@ class BookController:
 
     def update(self, id_book: int, book: BookCreateRequest):
         for i in range(len(DB)):
-            if DB[i].get('id') == id_book:
+            if DB[i].id == id_book:
                 DB[i] = book
         return DB
 
