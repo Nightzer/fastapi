@@ -13,25 +13,21 @@ class BookController:
             return books
         return DB
 
-
     def find(self, id_book: int) -> Book:
         for book in DB:
             if book.id == id_book:
                 return book
-
 
     def create(self, book: BookCreateRequest):
         model = Book(**book.model_dump())
         DB.append(model)
         return DB
 
-
     def update(self, id_book: int, book: BookCreateRequest):
         for i in range(len(DB)):
             if DB[i].id == id_book:
                 DB[i] = book
         return DB
-
 
     def delete(self, id_book: int):
         for i in range(len(DB)):

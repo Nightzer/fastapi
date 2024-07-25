@@ -7,6 +7,7 @@ app = FastAPI()
 book_controller = BookController()
 book_resource = ResourceBook()
 
+
 @app.get("/ping")
 def ping():
     return {'message': 'pong'}
